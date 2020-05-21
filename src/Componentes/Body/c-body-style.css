@@ -1,0 +1,21 @@
+.caixa {
+    width : 35rem;
+    margin: 15px;
+}
+
+.corpo-card {
+    display        : flex;
+    flex-wrap      : wrap;
+    margin         : 0 auto;
+    justify-content: center;
+}
+
+.caixa-pai {
+    display        : flex;
+    justify-content: center;
+}
+
+.box-card {
+    margin: 10px;
+    width : 6vw;
+}

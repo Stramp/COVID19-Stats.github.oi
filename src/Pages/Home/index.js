@@ -8,8 +8,10 @@ import Body from './../../Componentes/Body';
 function Home() {
   return (
     <main >
+
       <Header />
       <Body />
+
     </main>
   );
 }
