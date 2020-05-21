@@ -1,18 +1,20 @@
 .caixa {
-    width : 35rem;
-    margin: 15px;
+    width        : 28vw;
+    margin-bottom: 20px;
+    word-wrap    : unset !important;
 }
 
-.corpo-card {
+
+
+
+
+.teste {
     display        : flex;
+    justify-content: space-around;
     flex-wrap      : wrap;
-    margin         : 0 auto;
-    justify-content: center;
-}
+    flex-direction : row;
+    word-wrap      : unset !important;
 
-.caixa-pai {
-    display        : flex;
-    justify-content: center;
 }
 
 .box-card {

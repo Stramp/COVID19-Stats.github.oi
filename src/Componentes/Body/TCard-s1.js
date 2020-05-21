@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import { Card } from 'react-bootstrap'
+import { Card, Col, Row, Container } from 'react-bootstrap'
 import './c-body-style.css'
 
 //const NavBar = new (RB.Navbar);
@@ -8,60 +8,26 @@ export default ({ dados }) => {
 
     return (
         <Card className="caixa">
-            <h4>teste</h4>
-            <Card.Body className="corpo-card p-0">
-                <div className="box-card">
-                    <Card.Title className="m-0 p-0">
-                        {dados[0]}
-                    </Card.Title>
-                    <Card.Text>
-                        Lorem ipsum
-                    </Card.Text>
-                </div>
-                <div className="box-card">
-                    <Card.Title className="m-0 p-0">
-                        {dados[0]}
-                    </Card.Title>
-                    <Card.Text>
-                        Lorem ipsum
-                    </Card.Text>
-                </div>
-                <div className="box-card">
-                    <Card.Title className="m-0 p-0">
-                        {dados[0]}
-                    </Card.Title>
-                    <Card.Text>
-                        Lorem ipsum
-                    </Card.Text>
-                </div>
-
-                <div className="box-card">
-                    <Card.Title className="m-0 p-0">
-                        {dados[0]}
-                    </Card.Title>
-                    <Card.Text>
-                        Lorem ipsum
-                    </Card.Text>
-                </div>
-                <div className="box-card">
-                    <Card.Title className="m-0 p-0">
-                        {dados[0]}
-                    </Card.Title>
-                    <Card.Text>
-                        Lorem ipsum
-                    </Card.Text>
-                </div>
-                <div className="box-card">
-                    <Card.Title className="m-0 p-0">
-                        {dados[0]}
-                    </Card.Title>
-                    <Card.Text>
-                        Lorem ipsum
-                    </Card.Text>
-                </div>
-            </Card.Body>
-
-        </Card>
+            <Container className="m-0">
+                <Row>
+                    <Col>
+                        <Container className="m-0">
+                            <Row><h3>Teste texto</h3></Row>
+                            <Row>
+                                <Col><h4>0</h4><p>56.321</p></Col>
+                                <Col><h4>0</h4><p>56.321</p></Col>
+                                <Col><h4>0</h4><p>56.321</p></Col>
+                            </Row>
+                            <Row>
+                                <Col><h4>0</h4><p>56.321</p></Col>
+                                <Col><h4>0</h4><p>56.321</p></Col>
+                                <Col><h4>0</h4><p>56.321</p></Col>
+                            </Row>
+                        </Container>
+                    </Col>
+                </Row>
+            </Container>
+        </Card >
 
 
     )
