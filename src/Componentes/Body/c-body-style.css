@@ -1,20 +1,25 @@
 .caixa {
-    width        : 28vw;
-    margin-bottom: 20px;
-    word-wrap    : unset !important;
+    width          : 28vw;
+    margin-bottom  : 20px;
+    word-wrap      : unset !important;
+    justify-content: center;
 }
 
-
-
-
-
-.teste {
+.cards-group,
+.form-group {
     display        : flex;
     justify-content: space-around;
     flex-wrap      : wrap;
     flex-direction : row;
     word-wrap      : unset !important;
+}
 
+.teste {
+    color: red;
+}
+
+.row {
+    margin: 0 !important;
 }
 
 .box-card {
