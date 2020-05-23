@@ -3,16 +3,46 @@ import './c-body-style.css';
 // import Componentes
 import CardT from './TCard-s1';
 import CardB from './Cardb-s1';
-import { Container, Card, Table, } from 'react-bootstrap';
+import { Container, Card, Table } from 'react-bootstrap';
+
+
 export default (props) => {
+    console.log("-[body]-", props.dados);
+    const estados = {};
+    const uf = [];
+
+    function dataConvert(et) {
+        console.log(et);
+        const dataCase = new Date(et);
+        return dataCase.toLocaleString();
+    }
+
+    const listItems = props.dados.map((item, ind) =>
+
+        < tr key={ind} >
+            <td>{ind}</td>
+            <td>{item.state}</td>
+            <td>{item.cases}</td>
+            <td>{item.deaths}</td>
+            <td>{dataConvert(item.datetime)}</td>
+        </tr >
+
+    );
+
+
+
+    console.log(estados)
+
+
     return (
         <section>
+
             {/**  cabeçalho  */}
-            <Container className="mw-100 pl-5 pr-5 mt-3">
+            < Container className="mw-100 pl-5 pr-5 mt-3" >
                 <p className="m-0">COVID19</p>
                 <h1 className="m-0"><b>Painel</b> Coronavírus</h1>
                 <p className="m-0">Atualizado em:19/05/2020 19:20</p>
-            </Container>
+            </Container >
             {/**  fim cabeçalho  */}
 
             {/**  Cards  */}
@@ -28,7 +58,7 @@ export default (props) => {
             {/**  Lista Estados  */}
             <Container className="mw-100 pl-5 pr-5">
                 <Card>
-                    <Table responsive striped bordered hover>
+                    <Table responsive bordered hover>
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -39,13 +69,9 @@ export default (props) => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Ind</td>
-                                <td>varEstado</td>
-                                <td>varCasos</td>
-                                <td>varMortes</td>
-                                <td>dd/mm/aaaa</td>
-                            </tr>
+
+                            {listItems}
+
                         </tbody>
                     </Table>
                 </Card>
@@ -54,3 +80,4 @@ export default (props) => {
         </section>
     );
 }
+
