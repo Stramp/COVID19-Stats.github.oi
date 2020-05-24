@@ -23,7 +23,7 @@ export default () => {
 
 
     return (
-        <Card className="caixa">
+        <Card>
             <Container>
                 <Row>
                     <Col><Form.Label>Pesquise por sua cidade</Form.Label></Col>
@@ -42,7 +42,7 @@ export default () => {
                 </Row>
                 <Row>
                     <Col>
-                        <Table striped bordered hover className="mt-2">
+                        <Table striped bordered hover>
                             <thead>
                                 <tr>
                                     <td>{(cidade === "") ? "Cidade" : cidade}</td>

@@ -12,7 +12,7 @@ export default () => {
 
     return (
         <header>
-            <Navbar expand="lg" className="navcont">
+            <Navbar className="teste2">
                 <Logo />
                 <Menu />
             </Navbar>

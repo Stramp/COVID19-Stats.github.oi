@@ -8,30 +8,16 @@ import { Container, Card, Table } from 'react-bootstrap';
 
 export default (props) => {
     console.log("-[body]-", props.dados);
-    const estados = {};
-    const uf = [];
 
     function dataConvert(et) {
-        console.log(et);
         const dataCase = new Date(et);
         return dataCase.toLocaleString();
     }
 
-    const listItems = props.dados.map((item, ind) =>
-
-        < tr key={ind} >
-            <td>{ind}</td>
-            <td>{item.state}</td>
-            <td>{item.cases}</td>
-            <td>{item.deaths}</td>
-            <td>{dataConvert(item.datetime)}</td>
-        </tr >
-
-    );
 
 
 
-    console.log(estados)
+
 
 
     return (
@@ -70,7 +56,17 @@ export default (props) => {
                         </thead>
                         <tbody>
 
-                            {listItems}
+                            {props.dados.map((item, ind) =>
+
+                                < tr key={ind} >
+                                    <td>{ind}</td>
+                                    <td>{item.state}</td>
+                                    <td>{item.cases}</td>
+                                    <td>{item.deaths}</td>
+                                    <td>{dataConvert(item.datetime)}</td>
+                                </tr >
+
+                            )}
 
                         </tbody>
                     </Table>
