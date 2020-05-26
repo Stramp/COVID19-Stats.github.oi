@@ -3,17 +3,40 @@ import './c-body-style.css';
 // import Componentes
 import CardT from './TCard-s1';
 import CardB from './Cardb-s1';
-import { Container, Card, Table } from 'react-bootstrap';
+import Lista from './List-s2';
+import { Container, Row } from 'react-bootstrap';
 
 
 export default (props) => {
     console.log("-[body]-", props.dados);
 
-    function dataConvert(et) {
+    const dataConvert = (et) => {
         const dataCase = new Date(et);
         return dataCase.toLocaleString();
     }
+    const contCasos = () => {
+        let casos = 0;
+        props.dados.forEach((item, ind) => {
+            console.log(item.cases)
+            casos += parseInt(item.cases);
 
+        })
+        return casos;
+
+    };
+
+    const contMortes = () => {
+        let mortes = 0;
+        props.dados.forEach((item) => {
+            console.log(item.deaths)
+            mortes += parseInt(item.deaths);
+        })
+        return mortes;
+
+    };
+    const mortes = contMortes();
+    const casos = contCasos();
+    const dataAtualizacao = dataConvert(props.dados[0].datetime);
 
 
 
@@ -24,56 +47,28 @@ export default (props) => {
         <section>
 
             {/**  cabeçalho  */}
-            < Container className="mw-100 pl-5 pr-5 mt-3" >
-                <p className="m-0">COVID19</p>
-                <h1 className="m-0"><b>Painel</b> Coronavírus</h1>
-                <p className="m-0">Atualizado em:19/05/2020 19:20</p>
-            </Container >
+            <Container id="cabec" className="pt-3">
+                <Row className="pt-0">COVID19</Row>
+                <Row className="pt-0"><h1><b>Painel</b> Coronavírus</h1></Row>
+                <Row className="pt-0"><p>{dataAtualizacao}</p></Row>
+            </Container>
             {/**  fim cabeçalho  */}
 
             {/**  Cards  */}
-            <Container className="mw-100 pl-5 pr-5 mt-4 mb-3 ml-0 mr-0">
-                <div className="cards-group">
-                    <CardT dados={['0', 'teste2']}></CardT>
-                    <CardT dados={['0', 'teste5']}></CardT>
-                    <CardB dados={['0', 'teste5']}></CardB>
-                </div>
-            </Container >
+            <Container>
+                <Row style={{ justifyContent: 'center' }}>
+                    <CardT dados={[casos, mortes, dataAtualizacao]}></CardT>
+                    <CardB dados={props.dados}></CardB>
+                </Row>
+            </Container>
             {/**  Fim Cards  */}
 
             {/**  Lista Estados  */}
-            <Container className="mw-100 pl-5 pr-5">
-                <Card>
-                    <Table responsive bordered hover>
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Estado</th>
-                                <th>Casos</th>
-                                <th>Mortes</th>
-                                <th>Atualizado:</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            {props.dados.map((item, ind) =>
-
-                                < tr key={ind} >
-                                    <td>{ind}</td>
-                                    <td>{item.state}</td>
-                                    <td>{item.cases}</td>
-                                    <td>{item.deaths}</td>
-                                    <td>{dataConvert(item.datetime)}</td>
-                                </tr >
-
-                            )}
-
-                        </tbody>
-                    </Table>
-                </Card>
+            <Container >
+                <Lista dataConvert={dataConvert} dados={props.dados} />
             </Container>
             {/** FIM Lista Estados  */}
-        </section>
+        </section >
     );
 }
 

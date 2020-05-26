@@ -1,1 +1,99 @@
+@media screen and (max-width: 800px) {
 
+    .count {
+        font-size: 33px !important;
+    }
+
+    .input {
+        width: 85% !important;
+    }
+
+    #botao {
+        width: 85% !important;
+    }
+
+    .dadosPainel {
+        flex-basis: unset !important;
+        height    : unset !important;
+        margin    : 10px;
+    }
+
+    #dadosPainel2 {
+        flex-basis: unset !important;
+        height    : unset !important;
+        margin    : 10px;
+    }
+
+    #cabec {
+        width: 100% !important;
+
+        margin-left: 25px !important;
+    }
+
+    .tabelaCard {
+        font-size: 13px;
+    }
+
+    #tit {
+        font-size: 11px;
+    }
+
+
+}
+
+@media screen and (max-width: 500px) {
+
+    .count {
+        font-size: 33px !important;
+    }
+
+    #TCard {
+        width: 100% !important;
+    }
+
+    #lista {
+        width    : 100% !important;
+        font-size: 15px !important;
+    }
+
+    #cabec {
+        width: 90% !important;
+
+        margin-left: 25px !important;
+    }
+
+    #BCard {
+        width: 100% !important;
+    }
+
+
+    .input {
+        width: 85% !important;
+    }
+
+    #botao {
+        width: 85% !important;
+    }
+
+    .dadosPainel {
+        flex-basis: unset !important;
+        height    : unset !important;
+        margin    : 10px;
+    }
+
+    #dadosPainel2 {
+        flex-basis: unset !important;
+        height    : unset !important;
+        margin    : 10px;
+    }
+
+    .tabelaCard {
+        font-size: 13px;
+    }
+
+    #tit {
+        font-size: 11px;
+    }
+
+
+}

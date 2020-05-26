@@ -3,16 +3,16 @@ header {
 }
 
 
-.teste {
-    height       : 100px;
-    border-right : solid 3px rgb(20, 20, 20);
-    padding-right: 10px;
+.logo {
+    height      : 100px;
+    border-right: solid 3px rgb(20, 20, 20);
 
 }
 
+
 @media screen and (max-width: 500px) {
 
-    .teste2 {
+    .menu {
         flex-flow      : row wrap !important;
         justify-content: space-evenly !important;
     }
