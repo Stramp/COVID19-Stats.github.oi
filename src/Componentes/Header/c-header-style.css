@@ -2,33 +2,18 @@ header {
     background: linear-gradient(0deg, rgba(201, 174, 30, 1) 0%, rgba(227, 195, 36, 1) 43%, rgba(252, 218, 52, 1) 100%);
 }
 
-.navcont img {
+
+.logo {
     height      : 100px;
-    margin-right: 10px;
-}
+    border-right: solid 3px rgb(20, 20, 20);
 
-.navcont .slogan {
-    display    : flex;
-    align-items: center;
-}
-
-.navcont .slogan h1 {
-    font        : 500 50px sans-serif;
-    padding-left: 25px;
-}
-
-.divisor {
-    border      : 1px solid black;
-    border-width: 0 0 0 3px;
-    height      : 100px;
-}
-
-.navcont {
-    justify-content: space-around !important;
 }
 
 
-.menu {
-    font : 500 20px sans-serif;
-    color: #000;
+@media screen and (max-width: 500px) {
+
+    .menu {
+        flex-flow      : row wrap !important;
+        justify-content: space-evenly !important;
+    }
 }

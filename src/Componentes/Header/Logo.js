@@ -5,12 +5,13 @@ import { Navbar, Image } from 'react-bootstrap'
 //const NavBar = new (RB.Navbar);
 export default () => {
     return (
+        <>
+            <Navbar.Brand href="#home">
 
-        <Navbar.Brand href="#home" className="slogan">
-            <Image src="./assets/logo.png" alt="Logo" id="teste22" />
-            <div className="divisor"></div>
-            <h1>Saúde</h1>
-        </Navbar.Brand>
+                <Image className="logo" src="./assets/logo.png" alt="Logo" />
 
+            </Navbar.Brand>
+            <h1 >Saúde</h1>
+        </>
     )
 }

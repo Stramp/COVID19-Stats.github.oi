@@ -2,91 +2,73 @@ import React from 'react';
 import './c-body-style.css';
 // import Componentes
 import CardT from './TCard-s1';
-import { Container, Card, Table, Form, Button } from 'react-bootstrap';
-
-
+import CardB from './Cardb-s1';
+import Lista from './List-s2';
+import { Container, Row } from 'react-bootstrap';
 
 
 export default (props) => {
+    console.log("-[body]-", props.dados);
+
+    const dataConvert = (et) => {
+        const dataCase = new Date(et);
+        return dataCase.toLocaleString();
+    }
+    const contCasos = () => {
+        let casos = 0;
+        props.dados.forEach((item, ind) => {
+            console.log(item.cases)
+            casos += parseInt(item.cases);
+
+        })
+        return casos;
+
+    };
+
+    const contMortes = () => {
+        let mortes = 0;
+        props.dados.forEach((item) => {
+            console.log(item.deaths)
+            mortes += parseInt(item.deaths);
+        })
+        return mortes;
+
+    };
+    const mortes = contMortes();
+    const casos = contCasos();
+    const dataAtualizacao = dataConvert(props.dados[0].datetime);
+
+
+
+
 
 
     return (
         <section>
-            <Container className="mw-100 pl-5 pr-5 mt-3">
-                <p className="m-0">COVID19</p>
-                <h1 className="m-0"><b>Painel</b> Coronavírus</h1>
-                <p className="m-0">Atualizado em:19/05/2020 19:20</p>
+
+            {/**  cabeçalho  */}
+            <Container id="cabec" className="pt-3">
+                <Row className="pt-0">COVID19</Row>
+                <Row className="pt-0"><h1><b>Painel</b> Coronavírus</h1></Row>
+                <Row className="pt-0"><p>{dataAtualizacao}</p></Row>
             </Container>
+            {/**  fim cabeçalho  */}
 
-
-
-
-            <Container className="mw-100 pl-5 pr-5 mt-4 mb-3 ml-0 mr-0">
-                <div className="teste">
-
-                    <CardT dados={['0', 'teste2']}></CardT>
-
-
-                    <CardT dados={['0', 'teste5']}></CardT>
-
-
-                    <CardT dados={['0', 'teste5']}></CardT>
-
-                </div>
-            </Container >
-
-
-            <Container className="mw-100 pl-5 pr-5">
-                <Form>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="text" placeholder="Enter email" />
-                        <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
-                        </Form.Text>
-                    </Form.Group>
-                    <Button variant="primary" type="submit">
-                        Submit
-                    </Button>
-                </Form>
+            {/**  Cards  */}
+            <Container>
+                <Row style={{ justifyContent: 'center' }}>
+                    <CardT dados={[casos, mortes, dataAtualizacao]}></CardT>
+                    <CardB dados={props.dados}></CardB>
+                </Row>
             </Container>
+            {/**  Fim Cards  */}
 
-
-
-            <Container className="mw-100 pl-5 pr-5">
-                <Card>
-
-                    <Table responsive striped bordered hover>
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Estado</th>
-                                <th>Casos</th>
-                                <th>Mortes</th>
-                                <th>Atualizado:</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>Ind</td>
-                                <td>varEstado</td>
-                                <td>varCasos</td>
-                                <td>varMortes</td>
-                                <td>dd/mm/aaaa</td>
-
-
-                            </tr>
-
-                        </tbody>
-                    </Table>
-
-                </Card>
+            {/**  Lista Estados  */}
+            <Container >
+                <Lista dataConvert={dataConvert} dados={props.dados} />
             </Container>
-        </section>
-
-
+            {/** FIM Lista Estados  */}
+        </section >
     );
 }
-
 
