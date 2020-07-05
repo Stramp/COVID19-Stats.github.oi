@@ -7,36 +7,17 @@ import Lista from './List-s2';
 import { Container, Row } from 'react-bootstrap';
 
 
-export default (props) => {
-    console.log("-[body]-", props.dados);
+export default ({ data }) => {
+    console.log("-[body]-", data);
 
     const dataConvert = (et) => {
         const dataCase = new Date(et);
         return dataCase.toLocaleString();
     }
-    const contCasos = () => {
-        let casos = 0;
-        props.dados.forEach((item, ind) => {
-            console.log(item.cases)
-            casos += parseInt(item.cases);
 
-        })
-        return casos;
-
-    };
-
-    const contMortes = () => {
-        let mortes = 0;
-        props.dados.forEach((item) => {
-            console.log(item.deaths)
-            mortes += parseInt(item.deaths);
-        })
-        return mortes;
-
-    };
-    const mortes = contMortes();
-    const casos = contCasos();
-    const dataAtualizacao = dataConvert(props.dados[0].datetime);
+    const mortes = data.reduce((accumulator, currentElem) => accumulator + parseInt(currentElem.deaths), 0);
+    const casos = data.reduce((accumulator, currentElem) => accumulator + parseInt(currentElem.cases), 0);
+    const dataAtualizacao = dataConvert(data[0].datetime);
 
 
 
@@ -44,7 +25,7 @@ export default (props) => {
 
 
     return (
-        <section>
+        <section className="box">
 
             {/**  cabeçalho  */}
             <Container id="cabec" className="pt-3">
@@ -58,14 +39,14 @@ export default (props) => {
             <Container>
                 <Row style={{ justifyContent: 'center' }}>
                     <CardT dados={[casos, mortes, dataAtualizacao]}></CardT>
-                    <CardB dados={props.dados}></CardB>
+                    <CardB dados={data}></CardB>
                 </Row>
             </Container>
             {/**  Fim Cards  */}
 
             {/**  Lista Estados  */}
             <Container >
-                <Lista dataConvert={dataConvert} dados={props.dados} />
+                <Lista dataConvert={dataConvert} dados={data} />
             </Container>
             {/** FIM Lista Estados  */}
         </section >
